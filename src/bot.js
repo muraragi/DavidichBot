@@ -20,12 +20,21 @@ client.on('ready', () => {
 // Create an event listener for messages
 client.on('message', message => {
   // If the message is "ping"
-  if (message.content === 'justice') {
+  if (message.content === '!justice') {
     // Send "pong" to the same channel
     let now = moment();
     let timePassed = now.diff(jailDate, 'days');
     let response = `Эрик в заключении уже ${timePassed} дней...`;
     message.channel.send(response);
+  }
+
+  else if (message.content === '!voicedJustice'){
+    let now = moment();
+    let timePassed = now.diff(jailDate, 'days');
+    let response = `Эрик в заключении уже ${timePassed} дней...`;
+    message.channel.send(response, {
+        tts: true
+    });
   }
 });
 
